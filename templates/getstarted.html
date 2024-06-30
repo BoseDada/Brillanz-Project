@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate AI Voices with VoiceLab</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="GLogo.png" alt="GlobalScript Logo">
+                <h1>GlobalScript</h1>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="voicelab" class="voicelab">
+        <h1>Generate AI Voices with VoiceLab</h1>
+        <p>Create new and unique synthetic voices in minutes using advanced Generative AI technology. Create lifelike voices to use in videos, podcasts, audiobooks, and more.</p>
+        <div class="features1">
+            <div class="feature">
+                <h2>Transcription & translation</h2>
+                <p>Create lifelike audio from text using our advanced AI technology.</p>
+                <div class="demo-options">
+                    <div class="demo-option">
+                        <label for="text-language">Language</label>
+                        <select id="text-language">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="es">Spanish</option>
+                        </select>
+                    <br>
+                    </div>
+                    <form action="{{url_for('upload')}}" method="post" enctype="multipart/form-data">
+                        <input type="file" name="video" accept=".mp4">
+                        <input type="submit" value="Upload">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <button class="blue-button">Start Process</button>
+    <button class="blue-button">Download</button>
+</main>
+    
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>GlobalScript</h3>
+        </div>
+        <div class="footer-section">
+            <h3>Speech Synthesis</h3>
+            <ul>
+                <li><a href="#">Text to Speech</a></li>
+                <li><a href="#">Voice Changer</a></li>
+                <li><a href="#">Sound Effects</a></li>
+                <li><a href="#">Dubbing</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Languages</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Voice Lab</h3>
+            <ul>
+                <li><a href="#">Text to Speech</a></li>
+                <li><a href="#">Speech to Text</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Voice Actors</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">API</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Get Started</h3>
+            <ul>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Showcase</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>2024 GlobalScript &copy; All rights reserved. <a href="#">Terms</a> | <a href="#">Privacy</a></p>
+        <div class="social-icons">
+            <a href="#">LinkedIn</a>
+            <span>X</span>
+            <a href="#">Discord</a>
+            <span>X</span>
+            <a href="#">YouTube</a>
+            <span>X</span>
+            <a href="#">GitHub</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

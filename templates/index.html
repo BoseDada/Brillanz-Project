@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalScript</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="GLogo.png" alt="GlobalScript Logo">
+                <h1>GlobalScript</h1>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="blue-button" onclick="window.location.href='signin.html'">Sign in</button>
+                <button class="blue-button" onclick="window.location.href='signup.html'">Sign up</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <hr>
+        <section id="products" class="script features">
+            <h2>Product Details</h2>
+            <table class="product-details">
+                <tr>
+                    <th>FEATURES</th>
+                </tr>
+                <tr>
+                    <td><button class="feature-button">Feature 1 Description</button></td>
+                </tr>
+                <tr>
+                    <td><button class="feature-button">Feature 2 Description</button></td>
+                </tr>
+                <tr>
+                    <td><button class="feature-button">Feature 3 Description</button></td>
+                </tr>
+            </table>
+        </section>
+        <hr>
+
+        <section id="how-it-works" class="script-how-it-works">
+            <h2>How It Works</h2>
+            <div class="how-it-works-container">
+                <div class="how-it-works-content">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <strong>Section 1</strong>
+                            <p>Description</p>
+                        </div>
+                        <div>
+                            <strong>Section 2</strong>
+                            <p>Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/8SQV-B83tPU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <form action="/getstarted" method="post">
+            <button class="blue-button" onclick="window.location.href='getstarted.html'">Get Started</button>
+        </form>    
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GlobalScript</h3>
+            </div>
+            <div class="footer-section">
+                <h3>Speech Synthesis</h3>
+                <ul>
+                    <li><a href="#">Text to Speech</a></li>
+                    <li><a href="#">Voice Changer</a></li>
+                    <li><a href="#">Sound Effects</a></li>
+                    <li><a href="#">Dubbing</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Languages</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Voice Lab</h3>
+                <ul>
+                    <li><a href="#">Text to Speech</a></li>
+                    <li><a href="#">Speech to Text</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Voice Actors</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Get Started</h3>
+                <ul>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="#">Customers</a></li>
+                    <li><a href="#">Showcase</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2024 GlobalScript &copy; All rights reserved. <a href="#">Terms</a> <a href="#">Privacy</a></p>
+            <div class="social-icons">
+                <a href="#">LinkedIn</a>
+                <span>X</span>
+                <a href="#">Discord</a>
+                <span>X</span>
+                <a href="#">YouTube</a>
+                <span>X</span>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - GlobalScript</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="GLogo.png" alt="GlobalScript Logo">
+                <h1>GlobalScript</h1>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#resources">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="blue-button" onclick="window.location.href='signin.html'">Sign in</button>
+                <button class="blue-button" onclick="window.location.href='signup.html'">Sign up</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="form-container">
+            <h2>Sign Up</h2>
+            <form action="signup_handler.php" method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username (Gmail ID or Phone Number)</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="blue-button">Sign Up</button>
+            <button class="blue-button" onclick="window.location.href='https://accounts.google.com/'">Sign up with Gmail</button>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GlobalScript</h3>
+            </div>
+            <div class="footer-section">
+                <h3>Speech Synthesis</h3>
+                <ul>
+                    <li><a href="#">Text to Speech</a></li>
+                    <li><a href="#">Voice Changer</a></li>
+                    <li><a href="#">Sound Effects</a></li>
+                    <li><a href="#">Dubbing</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Languages</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Voice Lab</h3>
+                <ul>
+                    <li><a href="#">Text to Speech</a></li>
+                    <li><a href="#">Speech to Text</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Voice Actors</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Get Started</h3>
+                <ul>
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Customers</a></li>
+                    <li><a href="#">Showcase</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2024 GlobalScript &copy; All rights reserved. <a href="#">Terms</a> | <a href="#">Privacy</a></p>
+            <div class="social-icons">
+                <a href="#">LinkedIn</a>
+                <span>X</span>
