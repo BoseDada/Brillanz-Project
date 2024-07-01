@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 import moviepy.editor as mp
 import whisper
-import os
+from gtts import gTTS
+from googletrans import Translator
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -25,18 +26,75 @@ def allowed_file(filename):
 
 @app.route('/upload', methods = ['GET','POST'])
 def upload():
+    uploaded = False
     if 'video' not in request.files:
         return redirect(url_for('getstarted'))
     video = request.files['video']
     if video.filename == '':
         flash('No video selected')
-    if video and allowed_file(video.filename):
-        video.save(UPLOAD_FOLDER + video.filename)
+
+    filename = video.filename    
+    if video and allowed_file(filename):
+        video.save(UPLOAD_FOLDER + filename)
         flash('File uploaded successfully!')
+        uploaded = True
+        session['uploaded_filename'] = filename
 
     return redirect(url_for('getstarted'))
 
+@app.route('/process', methods = ['GET','POST'])
+def process():
+    filename = session.get('uploaded_filename')
+    #Writing Video to Audio
+    clip = mp.VideoFileClip(r'Files/videos/' + filename)
+    audio_filename = filename[:-3]+"mp3"
+    clip.audio.write_audiofile(r'Files/audios/' + audio_filename)
 
+    #Transcribing Video
+    model = whisper.load_model("base")
+    result = model.transcribe('Files/audios/' + audio_filename)
+
+    #Converting Transcription into Text file
+    text_filename = filename[:-3]+"txt"
+    with open("Files/transcriptions/" + text_filename,"w") as file:
+            file.write(result['text'])
+
+    translator = Translator()
+
+    #Opening Transripted file
+    file = open("Files/transcriptions/" + text_filename, "r")
+    if file.mode == 'r':
+        contents = file.read()
+
+
+    # Translation to Hindi
+    translated_to_hindi = translator.translate(contents, dest='hi')
+    text_hi = translated_to_hindi.text
+
+    #Making Translation text file 
+    translated_text_fielname = filename[:-4] + "translated.txt"
+    with open("Files/translated transcriptions/" + translated_text_fielname, "w") as f:
+        f.write(text_hi)
+
+    #Reading Translated text file
+    file = open("Files/translated transcriptions/" + translated_text_fielname, "r")
+    if file.mode == 'r':
+        translated_contents = file.read()
+
+    #Converting text to speech
+    translated_audio_filename = filename[:-4] + "translated.mp3"
+    myobj = gTTS(text = translated_contents, lang = "hi", slow = False)
+    myobj.save("Files/translated audios/" + translated_audio_filename)
+
+    #Embedding audio to original video
+    translated_video_filename = filename[:-4] + "translated.mp4"
+    clip = mp.VideoFileClip("Files/videos/" + filename)
+    audioclip = mp.AudioFileClip("Files/translated audios/"+ translated_audio_filename)
+    videofile = clip.set_audio(audioclip)
+    videofile.write_videofile("Files/translated videos/" + translated_video_filename, codec="libx264", audio_codec="aac", temp_audiofile = "Files/translated audios/" + filename[:-4] + "translated.m4a", remove_temp = True)
+    flash("Process Completed!")
+
+    return redirect(url_for('getstarted'))
 
 if __name__ == '__main__':
     app.run(debug = True, port = 9100)

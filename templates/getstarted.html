@@ -57,7 +57,9 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    <button class="blue-button">Start Process</button>
+    <form method="get" action = "/process">
+        <button class="blue-button" type="submit">Start Process</button>
+    </form> 
     <button class="blue-button">Download</button>
 </main>
     
