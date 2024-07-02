@@ -30,16 +30,20 @@
         <p>Create new and unique synthetic voices in minutes using advanced Generative AI technology. Create lifelike voices to use in videos, podcasts, audiobooks, and more.</p>
         <div class="features1">
             <div class="feature">
-                <h2>Transcription & translation</h2>
+                <h2>Transcription & Translation</h2>
                 <p>Create lifelike audio from text using our advanced AI technology.</p>
                 <div class="demo-options">
                     <div class="demo-option">
-                        <label for="text-language">Language</label>
-                        <select id="text-language">
-                            <option value="en">English</option>
-                            <option value="hi">Hindi</option>
-                            <option value="es">Spanish</option>
-                        </select>
+                        <form action="/set_language" method="post">
+                            <label for="text-language">Language</label>
+                            <select id="text-language" name="language">
+                                <option value="en">English</option>
+                                <option value="hi">Hindi</option>
+                                <option value="es">Spanish</option>
+                                <option value="bn">Bengali</option>
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
                     <br>
                     </div>
                     <form action="{{url_for('upload')}}" method="post" enctype="multipart/form-data">
@@ -60,7 +64,9 @@
     <form method="get" action = "/process">
         <button class="blue-button" type="submit">Start Process</button>
     </form> 
-    <button class="blue-button">Download</button>
+    <form action="/download" method="get">
+        <button class="blue-button" type="submit">Download</button>
+    </form>
 </main>
     
 <footer>
