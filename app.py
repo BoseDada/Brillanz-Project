@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, session, send_file
+from flask import Flask, render_template, request, flash, redirect, url_for, session, send_file, jsonify
 import moviepy.editor as mp
 import whisper
 from gtts import gTTS
@@ -10,9 +10,13 @@ app = Flask(__name__)
 app.secret_key = 'Brillanz'
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods = ['POST'])
 def home():
     return render_template('index.html')
+
+@app.route('/features')
+def features():
+    return render_template('features.html')
 
 @app.route('/getstarted',methods = ['GET','POST'])
 def getstarted():
@@ -33,22 +37,23 @@ def upload():
     video = request.files['video']
     if video.filename == '':
         flash('No video selected')
+        return redirect(url_for('getstarted'))
 
     filename = video.filename    
     if video and allowed_file(filename):
         video.save(UPLOAD_FOLDER + filename)
-        flash('File uploaded successfully!')
+        flash('File uploaded successfully')
         uploaded = True
         session['uploaded_filename'] = filename
+        return render_template('selectlang.html')
 
-    return redirect(url_for('getstarted'))
 
 @app.route('/set_language', methods = ['POST'])
 def set_language():
     selected_language = request.form['language']
     session['selected_language'] = selected_language
 
-    return redirect(url_for('getstarted'))
+    return render_template('startprocess.html')
 
 processed = False
 @app.route('/process', methods = ['GET','POST'])
@@ -107,11 +112,18 @@ def process():
         session['translated_filename'] = translated_video_filename
         flash("Process Completed!")
         processed = True
+
     
     else:
         flash("Video not uploaded")
 
-    return redirect(url_for('getstarted'))
+    return render_template('download.html')
+
+
+
+@app.route('/download-page')
+def dwonload_page():
+    return render_template('download.html')
 
 @app.route('/download', methods = ['GET'])
 def download():
@@ -124,7 +136,7 @@ def download():
     else:
         flash("Process not completed")
     
-    return redirect(url_for('getstarted'))
+    return redirect(url_for('download'))
     
 if __name__ == '__main__':
     app.run(debug = True, port = 9100)

@@ -41,18 +41,12 @@
         <div class="features1">
             <div class="feature">
                 <h2>Transcription & Translation</h2>
-                <h3>Step-1: Upload Video File</h3>
-                <p>Use an MP4 video file to translate your video.</p>
+                <h3>Step-3: Start Translating the Video</h3>
+                <p>Click on "Start Process" to translate your video.</p>
                 <div class="demo-options">
-                    
-                    <form action="{{url_for('upload')}}" method="post" enctype="multipart/form-data">
-                        <input type="file" name="video" accept=".mp4">
-                        <input type="submit" value="Upload">
-                    </form>
-                    <br>
-                    <div class="demo-option">
-                    <br>
-                    
+                    <form id = "process" method="get" action = "/process">
+                        <button class="blue-button" type="submit">Start Process</button>
+                    </form> 
                     </div>
                 </div>
             </div>

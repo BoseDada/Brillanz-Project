@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "static/style.css">
+    <title>GlobalScript</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+               <!--<img src="/Users/adyotbose/Documents/Brillanz Software Solutions LLP/Project/Logo.jpg" alt="GlobalScript Logo">-->
+                <h1>GlobalScript</h1>
+            </div>
+            <!--<nav class="nav-links">
+                <ul>
+                    <li><a href="{{url_for('features')}}">Features</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="blue-button" onclick="window.location.href='signin.html'">Sign in</button>
+                <button class="blue-button" onclick="window.location.href='signup.html'">Sign up</button>
+            </div>-->
+        </div>
+    </header>
+    <main>
+        <hr>
+        <form action = "/home" method="post">
+            <button class = "blue-button">Home</button>
+        </form>
+        <section id="products" class="script features">
+            <h2>Product Details</h2>
+            <table class="product-details">
+                <tr>
+                    <th>FEATURES</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                        <h4>Auto Transcription with OpenAI-Whisper</h4>
+                        <u>Overview:</u>
+                        Auto Transcription is the initial step in the process where the audio content of the prerecorded
+                        videos is converted into written text using OpenAI's Whisper module.
+                        <br>
+                        <br>
+                        <u>Real-time Processing:</u> OpenAI-Whisper can process audio in real-time or from recorded files,
+                        providing flexibility in handling different formats of video content.
+                        <br>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                        <h4>Translation with Google Translate Python Module</h4>
+                        <u>Overview:</u>
+                        Once the audio content is transcribed into text, the next step is to translate the transcription
+                        into the desired language(s) using Google Translate module.
+                        <br>
+                        <br>
+                        <u>Detailed Description</u>
+                        <br><br>
+                        <u>Wide Language Support:</u> googletrans module supports over 100 languages, allowing the
+                        project to cater to a global audience. This extensive language support ensures that content can
+                        be translated into almost any target language.
+                        <br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><h4>
+                            Speech Synthesis with Google Text-to-Speech (TTS) Module (gTTS)
+                        </h4>
+                            <u>Overview:</u>
+                            After the text is translated, the final step involves converting the translated text back
+                            into speech using Google Text-to-Speech python moodule. This synthesized speech is then embedded into
+                            the original video using MoviePy python module.
+                             <br>
+                             <br>
+                            <u>Detailed Description</u>
+                            <br><br>
+                            <u>Natural-Sounding Speech:</u> gTTS uses advanced neural network models to generate
+                            natural-sounding speech. This ensures that the translated audio retains the tone,
+                            intonation, and emotional context of the original speech.
+                            <br><br>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <hr>
+</body>
+</html>
