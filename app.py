@@ -4,6 +4,7 @@ import whisper
 from gtts import gTTS
 from googletrans import Translator
 import ssl
+import time
 ssl._create_default_https_context = ssl._create_unverified_context
 
 app = Flask(__name__)
@@ -54,6 +55,7 @@ def set_language():
     session['selected_language'] = selected_language
 
     return render_template('startprocess.html')
+
 
 processed = False
 @app.route('/process', methods = ['GET','POST'])
@@ -112,17 +114,16 @@ def process():
         session['translated_filename'] = translated_video_filename
         flash("Process Completed!")
         processed = True
+        return render_template('download.html')
 
     
     else:
         flash("Video not uploaded")
-
-    return render_template('download.html')
-
+        return redirect(url_for('startprocess'))
 
 
 @app.route('/download-page')
-def dwonload_page():
+def download_page():
     return render_template('download.html')
 
 @app.route('/download', methods = ['GET'])
