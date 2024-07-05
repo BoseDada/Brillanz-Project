@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate AI Voices with VoiceLab</title>
     <link rel="stylesheet" href="static/style.css">
-    <style>
+    <!-- <style>
         #progress-container {
             width: 100%;
             background-color: #f3f3f3;
@@ -20,7 +20,7 @@
             line-height: 30px;
             color: white;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <header>
@@ -60,10 +60,10 @@
                 <h3>Step-3: Start Translating the Video</h3>
                 <p>Click on "Start Process" to translate your video.</p>
                 <div class="demo-options">
-                    <form id = "process" method="post" action = "/process" onsubmit = "showProgressBar()">
+                    <form id = "process" method="post" action = "/process">
                         <button class="blue-button" type="submit">Start Process</button>
                     </form> 
-                    <div id="progress-container">
+                    <!-- <div id="progress-container">
                         <div id="progress-bar">0%</div>
                     </div>
                     <script>
@@ -81,9 +81,9 @@
                                 progressBar.style.width = width + '%';
                                 progressBar.innerHTML = width + '%';
                             }
-                        }, 1000); // Adjust the interval time as needed
+                        }, 1200); // Adjust the interval time as needed
                         }
-                    </script>
+                    </script> -->
                     </div>
                 </div>
             </div>
